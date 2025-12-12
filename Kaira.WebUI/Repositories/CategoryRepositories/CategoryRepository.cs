@@ -11,7 +11,8 @@ namespace Kaira.WebUI.Repositories.CategoryRepositories
         public async Task CreateAsync(CreateCategoryDto dto)
         {
             string query = "Insert into Categories (Name) Values (@Name)";
-            var parameters = new DynamicParameters(dto);
+            var parameters = new DynamicParameters();
+            parameters.Add("Name", dto.Name);
             await _db.ExecuteAsync(query, parameters);
         }
 

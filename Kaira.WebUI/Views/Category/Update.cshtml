@@ -1,0 +1,20 @@
+﻿@model UpdateCategoryDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Kategori Güncelle</h1>
+
+
+<form method="post">
+    <input type="hidden" asp-for="CategoryId"/>
+    <div class="form-group">
+        <label>Kategori Adı</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Kategori adını girin" required />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+
+</form>
+

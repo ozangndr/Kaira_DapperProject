@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ResultProductDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+}
+
+<h1>Ürünler</h1>
+
+<a href="/Product/Create" class="btn btn-primary">Yeni Ürün Ekle</a>
+
+<br />
+<br />
+
+<table class="table table-bordered table-hover" >
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Ürün Adı</th>
+            <th>Kategori</th>
+            <th>Resim</th>
+            <th>Açıklama</th>
+            <th>Fiyat</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.Name</td>
+                <td>@item.CategoryName</td>
+                <td><img src="@item.ImageUrl" width="64px" height="64px" /></td>
+                <td>@item.Description</td>
+                <td>@item.Price</td>
+                <td>
+                    <a href="/Product/Delete/@item.ProductId" class="btn btn-danger">Sil</a>
+                    <a href="/Product/Update/@item.ProductId" class="btn btn-info">Düzenle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
